@@ -1,0 +1,99 @@
+models:
+  warping_spade:
+    name: "WarpingSpadeModel"
+    predict_type: "trt"
+    model_path: "/models/warping_spade-fix.trt"
+  motion_extractor:
+    name: "MotionExtractorModel"
+    predict_type: "trt"
+    model_path: "/models/motion_extractor.trt"
+  landmark:
+    name: "LandmarkModel"
+    predict_type: "trt"
+    model_path: "/models/landmark.trt"
+  face_analysis:
+    name: "FaceAnalysisModel"
+    predict_type: "trt"
+    model_path:
+      - "/models/retinaface_det_static.trt"
+      - "/models/face_2dpose_106_static.trt"
+  app_feat_extractor:
+    name: "AppearanceFeatureExtractorModel"
+    predict_type: "trt"
+    model_path: "/models/appearance_feature_extractor.trt"
+  stitching:
+    name: "StitchingModel"
+    predict_type: "trt"
+    model_path: "/models/stitching.trt"
+  stitching_eye_retarget:
+    name: "StitchingModel"
+    predict_type: "trt"
+    model_path: "/models/stitching_eye.trt"
+  stitching_lip_retarget:
+    name: "StitchingModel"
+    predict_type: "trt"
+    model_path: "/models/stitching_lip.trt"
+animal_models:
+  warping_spade:
+    name: "WarpingSpadeModel"
+    predict_type: "trt"
+    model_path: "/models/animal_warping_spade-fix.trt"
+  motion_extractor:
+    name: "MotionExtractorModel"
+    predict_type: "trt"
+    model_path: "/models/animal_motion_extractor.trt"
+  app_feat_extractor:
+    name: "AppearanceFeatureExtractorModel"
+    predict_type: "trt"
+    model_path: "/models/animal_appearance_feature_extractor.trt"
+  stitching:
+    name: "StitchingModel"
+    predict_type: "trt"
+    model_path: "/models/animal_stitching.trt"
+  stitching_eye_retarget:
+    name: "StitchingModel"
+    predict_type: "trt"
+    model_path: "/models/animal_stitching_eye.trt"
+  stitching_lip_retarget:
+    name: "StitchingModel"
+    predict_type: "trt"
+    model_path: "/models/animal_stitching_lip.trt"
+  landmark:
+    name: "LandmarkModel"
+    predict_type: "trt"
+    model_path: "/models/landmark.trt"
+  face_analysis:
+    name: "FaceAnalysisModel"
+    predict_type: "trt"
+    model_path:
+      - "/models/retinaface_det_static.trt"
+      - "/models/face_2dpose_106_static.trt"
+
+crop_params:
+  src_dsize: 512
+  src_scale: 2.3
+  src_vx_ratio: 0.0
+  src_vy_ratio: -0.125
+  dri_scale: 2.2
+  dri_vx_ratio: 0.0
+  dri_vy_ratio: -0.1
+infer_params:
+  flag_crop_driving_video: False
+  flag_normalize_lip: True
+  flag_source_video_eye_retargeting: False
+  flag_video_editing_head_rotation: False
+  flag_eye_retargeting: False
+  flag_lip_retargeting: False
+  flag_stitching: True
+  flag_relative_motion: True
+  flag_pasteback: True
+  flag_do_crop: True
+  flag_do_rot: True
+  lip_normalize_threshold: 0.03
+  source_video_eye_retargeting_threshold: 0.18
+  driving_smooth_observation_variance: 1e-7
+  anchor_frame: 0
+  mask_crop_path: "./assets/mask_template.png"
+  driving_multiplier: 1.0
+  source_max_dim: 1280
+  source_division: 2
